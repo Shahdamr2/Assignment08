@@ -1,4 +1,5 @@
 ﻿using Assignment08.Entities;
+using Assignment08.Inheritance;
 
 namespace Assignment08
 {
@@ -28,31 +29,74 @@ namespace Assignment08
             #endregion
             #region Question 3
 
-            Shipment shipment =
-                new Shipment(
-                    "SH001",
+            //Shipment shipment =
+            //    new Shipment(
+            //        "SH001",
+            //        "Laptop",
+            //        3,
+            //        80,
+            //        new DeliveryAddress("Cairo", "Tahrir Street", 15));
+
+            //shipment.PrintShipment();
+
+            //Console.WriteLine();
+
+            //shipment.UpdateWeight(4);
+
+            //Console.WriteLine("After updating weight:");
+
+            //shipment.PrintShipment();
+
+            //Console.WriteLine();
+
+            //shipment.UpdateWeight(5, 1);
+
+            //Console.WriteLine("After adding packing weight:");
+
+            //shipment.PrintShipment();
+
+            #endregion
+            #region Question 4
+
+            DeliveryAddress address =
+                new DeliveryAddress("Cairo", "Tahrir Street", 15);
+
+            StandardShipment standardShipment =
+                new StandardShipment(
+                    "SH101",
                     "Laptop",
                     3,
                     80,
-                    new DeliveryAddress("Cairo", "Tahrir Street", 15));
+                    address);
 
-            shipment.PrintShipment();
+            ExpressShipment expressShipment =
+                new ExpressShipment(
+                    "SH102",
+                    "Mobile",
+                    2,
+                    100,
+                    address,
+                    50);
+
+            InternationalShipment internationalShipment =
+                new InternationalShipment(
+                    "SH103",
+                    "Tablet",
+                    4,
+                    120,
+                    address,
+                    "USA",
+                    70);
+
+            standardShipment.PrintShipment();
 
             Console.WriteLine();
 
-            shipment.UpdateWeight(4);
-
-            Console.WriteLine("After updating weight:");
-
-            shipment.PrintShipment();
+            expressShipment.PrintShipment();
 
             Console.WriteLine();
 
-            shipment.UpdateWeight(5, 1);
-
-            Console.WriteLine("After adding packing weight:");
-
-            shipment.PrintShipment();
+            internationalShipment.PrintShipment();
 
             #endregion
         }
