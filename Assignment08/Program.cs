@@ -183,8 +183,47 @@ namespace Assignment08
             #endregion
             #region Question 7
 
-            DeliveryCenter center =
-                new DeliveryCenter("Main Delivery Center");
+            //DeliveryCenter center =
+            //    new DeliveryCenter("Main Delivery Center");
+
+            //DeliveryAddress address =
+            //    new DeliveryAddress("Cairo", "Tahrir Street", 15);
+
+            //StandardShipment standardShipment =
+            //    new StandardShipment(
+            //        "SH101",
+            //        "Laptop",
+            //        3,
+            //        80,
+            //        address);
+
+            //ExpressShipment expressShipment =
+            //    new ExpressShipment(
+            //        "SH102",
+            //        "Mobile",
+            //        2,
+            //        100,
+            //        address,
+            //        50);
+
+            //InternationalShipment internationalShipment =
+            //    new InternationalShipment(
+            //        "SH103",
+            //        "Tablet",
+            //        4,
+            //        120,
+            //        address,
+            //        "USA",
+            //        70);
+
+            //center.AddShipment(standardShipment);
+            //center.AddShipment(expressShipment);
+            //center.AddShipment(internationalShipment);
+
+            //center.PrintAllShipments();
+
+            #endregion
+            #region Question 8
 
             DeliveryAddress address =
                 new DeliveryAddress("Cairo", "Tahrir Street", 15);
@@ -216,11 +255,15 @@ namespace Assignment08
                     "USA",
                     70);
 
-            center.AddShipment(standardShipment);
-            center.AddShipment(expressShipment);
-            center.AddShipment(internationalShipment);
+            DeliveryHelper.PrintShipmentDetails(standardShipment);
 
-            center.PrintAllShipments();
+            Console.WriteLine();
+
+            DeliveryHelper.PrintShipmentDetails(expressShipment);
+
+            Console.WriteLine();
+
+            DeliveryHelper.PrintShipmentDetails(internationalShipment);
 
             #endregion
         }
