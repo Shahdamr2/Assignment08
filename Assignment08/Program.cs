@@ -58,6 +58,49 @@ namespace Assignment08
             #endregion
             #region Question 4
 
+            //DeliveryAddress address =
+            //    new DeliveryAddress("Cairo", "Tahrir Street", 15);
+
+            //StandardShipment standardShipment =
+            //    new StandardShipment(
+            //        "SH101",
+            //        "Laptop",
+            //        3,
+            //        80,
+            //        address);
+
+            //ExpressShipment expressShipment =
+            //    new ExpressShipment(
+            //        "SH102",
+            //        "Mobile",
+            //        2,
+            //        100,
+            //        address,
+            //        50);
+
+            //InternationalShipment internationalShipment =
+            //    new InternationalShipment(
+            //        "SH103",
+            //        "Tablet",
+            //        4,
+            //        120,
+            //        address,
+            //        "USA",
+            //        70);
+
+            //standardShipment.PrintShipment();
+
+            //Console.WriteLine();
+
+            //expressShipment.PrintShipment();
+
+            //Console.WriteLine();
+
+            //internationalShipment.PrintShipment();
+
+            #endregion
+            #region Question 5
+
             DeliveryAddress address =
                 new DeliveryAddress("Cairo", "Tahrir Street", 15);
 
@@ -88,15 +131,11 @@ namespace Assignment08
                     "USA",
                     70);
 
-            standardShipment.PrintShipment();
+            Console.WriteLine($"Standard Estimated Cost: {standardShipment.EstimatedCost} EGP");
 
-            Console.WriteLine();
+            Console.WriteLine($"Express Estimated Cost: {expressShipment.EstimatedCost} EGP");
 
-            expressShipment.PrintShipment();
-
-            Console.WriteLine();
-
-            internationalShipment.PrintShipment();
+            Console.WriteLine($"International Estimated Cost: {internationalShipment.EstimatedCost} EGP");
 
             #endregion
         }

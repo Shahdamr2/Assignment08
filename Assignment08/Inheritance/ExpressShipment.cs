@@ -17,5 +17,10 @@ namespace Assignment08.Inheritance
         {
             ExtraFee = extraFee;
         }
+
+        public override decimal EstimatedCost
+        {
+            get { return base.EstimatedCost + ExtraFee; }
+        }
     }
 }

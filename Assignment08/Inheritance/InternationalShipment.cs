@@ -20,5 +20,10 @@ namespace Assignment08.Inheritance
             DestinationCountry = destinationCountry;
             CustomsFee = customsFee;
         }
+
+        public override decimal EstimatedCost
+        {
+            get { return base.EstimatedCost + CustomsFee; }
+        }
     }
 }
