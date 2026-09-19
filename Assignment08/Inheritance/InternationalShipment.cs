@@ -25,5 +25,13 @@ namespace Assignment08.Inheritance
         {
             get { return base.EstimatedCost + CustomsFee; }
         }
+
+        public override void PrintShipment()
+        {
+            base.PrintShipment();
+            Console.WriteLine($"Destination Country: {DestinationCountry}");
+            Console.WriteLine($"Customs Fee        : {CustomsFee} EGP");
+            Console.WriteLine("Shipment Type: International");
+        }
     }
 }

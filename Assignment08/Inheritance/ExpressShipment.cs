@@ -22,5 +22,12 @@ namespace Assignment08.Inheritance
         {
             get { return base.EstimatedCost + ExtraFee; }
         }
+
+        public override void PrintShipment()
+        {
+            base.PrintShipment();
+            Console.WriteLine($"Extra Fee     : {ExtraFee} EGP");
+            Console.WriteLine("Shipment Type: Express");
+        }
     }
 }

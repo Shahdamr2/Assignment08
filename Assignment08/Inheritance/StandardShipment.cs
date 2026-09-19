@@ -13,5 +13,11 @@ namespace Assignment08.Inheritance
             : base(trackingCode, description, weight, deliveryFee, destination)
         {
         }
+
+        public override void PrintShipment()
+        {
+            base.PrintShipment();
+            Console.WriteLine("Shipment Type: Standard");
+        }
     }
 }
