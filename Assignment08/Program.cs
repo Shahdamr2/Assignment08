@@ -284,8 +284,115 @@ namespace Assignment08
             #endregion
             #region Question 10
 
+            //DeliveryAddress address =
+            //    new DeliveryAddress("Cairo", "Tahrir Street", 15);
+
+            //PriorityInternationalShipment priorityShipment =
+            //    new PriorityInternationalShipment(
+            //        "SH105",
+            //        "Medical Equipment",
+            //        6,
+            //        200,
+            //        address,
+            //        "Germany",
+            //        100);
+
+            //priorityShipment.GenerateCustomsReport();
+
+            #endregion
+            #region Question 11
+
+            DeliveryCenter center =
+                new DeliveryCenter("Main Delivery Center");
+
             DeliveryAddress address =
                 new DeliveryAddress("Cairo", "Tahrir Street", 15);
+
+            StandardShipment standardShipment =
+                new StandardShipment(
+                    "SH101",
+                    "Laptop",
+                    3,
+                    80,
+                    address);
+
+            ExpressShipment expressShipment =
+                new ExpressShipment(
+                    "SH102",
+                    "Mobile",
+                    2,
+                    100,
+                    address,
+                    50);
+
+            InternationalShipment internationalShipment =
+                new InternationalShipment(
+                    "SH103",
+                    "Tablet",
+                    4,
+                    120,
+                    address,
+                    "USA",
+                    70);
+
+            center.AddShipment(standardShipment);
+            center.AddShipment(expressShipment);
+            center.AddShipment(internationalShipment);
+
+            Console.WriteLine("All Shipments:");
+            Console.WriteLine();
+
+            center.PrintAllShipments();
+
+            Console.WriteLine("Using DeliveryHelper:");
+            Console.WriteLine();
+
+            DeliveryHelper.PrintShipmentDetails(expressShipment);
+
+            Console.WriteLine();
+
+            Console.WriteLine("Updating Weight:");
+
+            standardShipment.UpdateWeight(4);
+            standardShipment.PrintShipment();
+
+            Console.WriteLine();
+
+            standardShipment.UpdateWeight(5, 1);
+            standardShipment.PrintShipment();
+
+            Console.WriteLine();
+
+            Console.WriteLine("Polymorphism:");
+
+            Shipment[] shipments =
+            {
+    standardShipment,
+    expressShipment,
+    internationalShipment
+};
+
+            foreach (Shipment shipment in shipments)
+            {
+                shipment.PrintShipment();
+                Console.WriteLine();
+            }
+
+            Console.WriteLine("Sealed Class:");
+
+            CompletedShipment completedShipment =
+                new CompletedShipment(
+                    "SH104",
+                    "Computer",
+                    5,
+                    150,
+                    address);
+
+            completedShipment.PrintShipment();
+
+            Console.WriteLine();
+
+            Console.WriteLine("Sealed Method:");
 
             PriorityInternationalShipment priorityShipment =
                 new PriorityInternationalShipment(
