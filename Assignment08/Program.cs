@@ -1,4 +1,6 @@
-﻿namespace Assignment08
+﻿using Assignment08.Entities;
+
+namespace Assignment08
 {
     internal class Program
     {
@@ -22,6 +24,35 @@
 
             // c) No, a sealed method cannot be overridden because
             // it stops further overriding in derived classes
+
+            #endregion
+            #region Question 3
+
+            Shipment shipment =
+                new Shipment(
+                    "SH001",
+                    "Laptop",
+                    3,
+                    80,
+                    new DeliveryAddress("Cairo", "Tahrir Street", 15));
+
+            shipment.PrintShipment();
+
+            Console.WriteLine();
+
+            shipment.UpdateWeight(4);
+
+            Console.WriteLine("After updating weight:");
+
+            shipment.PrintShipment();
+
+            Console.WriteLine();
+
+            shipment.UpdateWeight(5, 1);
+
+            Console.WriteLine("After adding packing weight:");
+
+            shipment.PrintShipment();
 
             #endregion
         }
