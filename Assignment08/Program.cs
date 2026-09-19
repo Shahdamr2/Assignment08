@@ -268,18 +268,36 @@ namespace Assignment08
             #endregion
             #region Question 9
 
+            //DeliveryAddress address =
+            //    new DeliveryAddress("Cairo", "Tahrir Street", 15);
+
+            //CompletedShipment completedShipment =
+            //    new CompletedShipment(
+            //        "SH104",
+            //        "Computer",
+            //        5,
+            //        150,
+            //        address);
+
+            //completedShipment.PrintShipment();
+
+            #endregion
+            #region Question 10
+
             DeliveryAddress address =
                 new DeliveryAddress("Cairo", "Tahrir Street", 15);
 
-            CompletedShipment completedShipment =
-                new CompletedShipment(
-                    "SH104",
-                    "Computer",
-                    5,
-                    150,
-                    address);
+            PriorityInternationalShipment priorityShipment =
+                new PriorityInternationalShipment(
+                    "SH105",
+                    "Medical Equipment",
+                    6,
+                    200,
+                    address,
+                    "Germany",
+                    100);
 
-            completedShipment.PrintShipment();
+            priorityShipment.GenerateCustomsReport();
 
             #endregion
         }

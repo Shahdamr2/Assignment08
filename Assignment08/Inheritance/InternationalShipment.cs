@@ -33,5 +33,10 @@ namespace Assignment08.Inheritance
             Console.WriteLine($"Customs Fee        : {CustomsFee} EGP");
             Console.WriteLine("Shipment Type: International");
         }
+
+        public virtual void GenerateCustomsReport()
+        {
+            Console.WriteLine($"Customs Report for {DestinationCountry}");
+        }
     }
 }
