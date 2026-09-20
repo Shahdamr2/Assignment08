@@ -1,4 +1,5 @@
 ﻿using System;
+using Assignment08.Interfaces;
 
 namespace Assignment08.Entities
 {
@@ -67,6 +68,18 @@ namespace Assignment08.Entities
                 if (shipments[i] != null)
                 {
                     shipments[i].PrintShipment();
+                    Console.WriteLine();
+                }
+            }
+        }
+
+        public void PrintTrackingStatuses()
+        {
+            for (int i = 0; i < count; i++)
+            {
+                if (shipments[i] is ITrackable shipment)
+                {
+                    Console.WriteLine(shipment.GetTrackingStatus());
                     Console.WriteLine();
                 }
             }

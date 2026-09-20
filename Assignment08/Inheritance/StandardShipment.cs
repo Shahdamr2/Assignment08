@@ -4,7 +4,7 @@ using Assignment08.Interfaces;
 
 namespace Assignment08.Inheritance
 {
-    public class StandardShipment : Shipment, IInsurable
+    public class StandardShipment : Shipment, ITrackable, IInsurable
     {
         public StandardShipment(
             string trackingCode,
@@ -28,6 +28,11 @@ namespace Assignment08.Inheritance
             Console.WriteLine($"Tracking Code : {TrackingCode}");
             Console.WriteLine($"Description   : {Description}");
             Console.WriteLine($"Estimated Cost: {EstimatedCost} EGP");
+        }
+
+        public string GetTrackingStatus()
+        {
+            return $"Shipment {TrackingCode} is Ready.";
         }
 
         public decimal CalculateInsurance()
