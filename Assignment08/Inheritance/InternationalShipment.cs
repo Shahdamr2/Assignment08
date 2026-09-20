@@ -1,9 +1,10 @@
 ﻿using System;
 using Assignment08.Entities;
+using Assignment08.Interfaces;
 
 namespace Assignment08.Inheritance
 {
-    public class InternationalShipment : Shipment
+    public class InternationalShipment : Shipment, IInsurable
     {
         public string DestinationCountry { get; set; }
         public decimal CustomsFee { get; set; }
@@ -50,6 +51,11 @@ namespace Assignment08.Inheritance
         public virtual void GenerateCustomsReport()
         {
             Console.WriteLine($"Customs Report for {DestinationCountry}");
+        }
+
+        public decimal CalculateInsurance()
+        {
+            return EstimatedCost * 0.12m;
         }
     }
 }

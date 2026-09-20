@@ -1,9 +1,10 @@
 ﻿using System;
 using Assignment08.Entities;
+using Assignment08.Interfaces;
 
 namespace Assignment08.Inheritance
 {
-    public class ExpressShipment : Shipment
+    public class ExpressShipment : Shipment, IInsurable
     {
         public decimal ExtraFee { get; set; }
 
@@ -38,6 +39,11 @@ namespace Assignment08.Inheritance
             Console.WriteLine($"Tracking Code : {TrackingCode}");
             Console.WriteLine($"Extra Fee     : {ExtraFee} EGP");
             Console.WriteLine($"Estimated Cost: {EstimatedCost} EGP");
+        }
+
+        public decimal CalculateInsurance()
+        {
+            return EstimatedCost * 0.08m;
         }
     }
 }

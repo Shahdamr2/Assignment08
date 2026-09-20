@@ -1,9 +1,10 @@
 ﻿using System;
 using Assignment08.Entities;
+using Assignment08.Interfaces;
 
 namespace Assignment08.Inheritance
 {
-    public class StandardShipment : Shipment
+    public class StandardShipment : Shipment, IInsurable
     {
         public StandardShipment(
             string trackingCode,
@@ -27,6 +28,11 @@ namespace Assignment08.Inheritance
             Console.WriteLine($"Tracking Code : {TrackingCode}");
             Console.WriteLine($"Description   : {Description}");
             Console.WriteLine($"Estimated Cost: {EstimatedCost} EGP");
+        }
+
+        public decimal CalculateInsurance()
+        {
+            return EstimatedCost * 0.05m;
         }
     }
 }
