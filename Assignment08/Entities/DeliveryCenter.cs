@@ -4,7 +4,7 @@ namespace Assignment08.Entities
 {
     public class DeliveryCenter
     {
-        private Shipment[] shipments;
+        private Shipment?[] shipments;
         private int count;
 
         public string Name { get; set; }
@@ -12,11 +12,11 @@ namespace Assignment08.Entities
         public DeliveryCenter(string name)
         {
             Name = name;
-            shipments = new Shipment[20];
+            shipments = new Shipment?[20];
             count = 0;
         }
 
-        public Shipment this[int index]
+        public Shipment? this[int index]
         {
             get
             {
@@ -42,7 +42,8 @@ namespace Assignment08.Entities
         {
             for (int i = 0; i < count; i++)
             {
-                if (shipments[i].TrackingCode == trackingCode)
+                if (shipments[i] != null &&
+                    shipments[i].TrackingCode == trackingCode)
                 {
                     for (int j = i; j < count - 1; j++)
                     {
@@ -63,8 +64,11 @@ namespace Assignment08.Entities
         {
             for (int i = 0; i < count; i++)
             {
-                shipments[i].PrintShipment();
-                Console.WriteLine();
+                if (shipments[i] != null)
+                {
+                    shipments[i].PrintShipment();
+                    Console.WriteLine();
+                }
             }
         }
     }
