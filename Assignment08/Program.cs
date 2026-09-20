@@ -1,10 +1,10 @@
-﻿namespace Assignment08
+﻿namespace Assignment09
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            
         }
     }
 }
