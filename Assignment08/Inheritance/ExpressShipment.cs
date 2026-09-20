@@ -1,4 +1,5 @@
-﻿using Assignment08.Entities;
+﻿using System;
+using Assignment08.Entities;
 
 namespace Assignment08.Inheritance
 {
@@ -15,19 +16,28 @@ namespace Assignment08.Inheritance
             decimal extraFee)
             : base(trackingCode, description, weight, deliveryFee, destination)
         {
-            ExtraFee = extraFee;
+            if (extraFee >= 0)
+            {
+                ExtraFee = extraFee;
+            }
+            else
+            {
+                ExtraFee = 0;
+            }
         }
 
         public override decimal EstimatedCost
         {
-            get { return base.EstimatedCost + ExtraFee; }
+            get { return DeliveryFee + (Weight * 5) + ExtraFee; }
         }
 
         public override void PrintShipment()
         {
-            base.PrintShipment();
+            Console.WriteLine("Express Shipment");
+            Console.WriteLine();
+            Console.WriteLine($"Tracking Code : {TrackingCode}");
             Console.WriteLine($"Extra Fee     : {ExtraFee} EGP");
-            Console.WriteLine("Shipment Type: Express");
+            Console.WriteLine($"Estimated Cost: {EstimatedCost} EGP");
         }
     }
 }

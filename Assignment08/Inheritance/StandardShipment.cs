@@ -1,4 +1,5 @@
-﻿using Assignment08.Entities;
+﻿using System;
+using Assignment08.Entities;
 
 namespace Assignment08.Inheritance
 {
@@ -14,10 +15,18 @@ namespace Assignment08.Inheritance
         {
         }
 
+        public override decimal EstimatedCost
+        {
+            get { return DeliveryFee + (Weight * 5); }
+        }
+
         public override void PrintShipment()
         {
-            base.PrintShipment();
-            Console.WriteLine("Shipment Type: Standard");
+            Console.WriteLine("Standard Shipment");
+            Console.WriteLine();
+            Console.WriteLine($"Tracking Code : {TrackingCode}");
+            Console.WriteLine($"Description   : {Description}");
+            Console.WriteLine($"Estimated Cost: {EstimatedCost} EGP");
         }
     }
 }

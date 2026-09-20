@@ -1,4 +1,5 @@
-﻿using Assignment08.Entities;
+﻿using System;
+using Assignment08.Entities;
 
 namespace Assignment08.Inheritance
 {
@@ -17,21 +18,33 @@ namespace Assignment08.Inheritance
             decimal customsFee)
             : base(trackingCode, description, weight, deliveryFee, destination)
         {
-            DestinationCountry = destinationCountry;
-            CustomsFee = customsFee;
+            DestinationCountry =
+                string.IsNullOrWhiteSpace(destinationCountry)
+                ? "Unknown"
+                : destinationCountry;
+
+            if (customsFee >= 0)
+            {
+                CustomsFee = customsFee;
+            }
+            else
+            {
+                CustomsFee = 0;
+            }
         }
 
         public override decimal EstimatedCost
         {
-            get { return base.EstimatedCost + CustomsFee; }
+            get { return DeliveryFee + (Weight * 5) + CustomsFee; }
         }
 
         public override void PrintShipment()
         {
-            base.PrintShipment();
-            Console.WriteLine($"Destination Country: {DestinationCountry}");
-            Console.WriteLine($"Customs Fee        : {CustomsFee} EGP");
-            Console.WriteLine("Shipment Type: International");
+            Console.WriteLine("International Shipment");
+            Console.WriteLine();
+            Console.WriteLine($"Tracking Code       : {TrackingCode}");
+            Console.WriteLine($"Destination Country : {DestinationCountry}");
+            Console.WriteLine($"Estimated Cost      : {EstimatedCost} EGP");
         }
 
         public virtual void GenerateCustomsReport()
