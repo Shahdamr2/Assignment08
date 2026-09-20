@@ -94,10 +94,7 @@ namespace Assignment08.Entities
 
         public DeliveryAddress Destination { get; set; }
 
-        public virtual decimal EstimatedCost
-        {
-            get { return DeliveryFee + (Weight * 5); }
-        }
+        public abstract decimal EstimatedCost { get; }
 
         public void UpdateDeliveryFee(decimal newFee)
         {
@@ -123,13 +120,6 @@ namespace Assignment08.Entities
             }
         }
 
-        public virtual void PrintShipment()
-        {
-            Console.WriteLine($"Tracking Code : {TrackingCode}");
-            Console.WriteLine($"Description   : {Description}");
-            Console.WriteLine($"Weight        : {Weight} KG");
-            Console.WriteLine($"Delivery Fee  : {DeliveryFee} EGP");
-            Console.WriteLine($"Estimated Cost: {EstimatedCost} EGP");
-        }
+        public abstract void PrintShipment();
     }
 }
