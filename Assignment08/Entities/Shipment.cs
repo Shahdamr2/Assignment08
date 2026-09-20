@@ -2,7 +2,7 @@
 
 namespace Assignment08.Entities
 {
-    public class Shipment
+    public abstract class Shipment
     {
         private string trackingCode;
         private string description;
@@ -11,7 +11,8 @@ namespace Assignment08.Entities
 
         public Shipment(string trackingCode)
         {
-            this.trackingCode = string.IsNullOrWhiteSpace(trackingCode) ? "Unknown" : trackingCode;
+            this.trackingCode =
+                string.IsNullOrWhiteSpace(trackingCode) ? "Unknown" : trackingCode;
 
             description = "Unknown";
             weight = 1;
@@ -26,7 +27,8 @@ namespace Assignment08.Entities
             decimal deliveryFee,
             DeliveryAddress destination)
         {
-            this.trackingCode = string.IsNullOrWhiteSpace(trackingCode) ? "Unknown" : trackingCode;
+            this.trackingCode =
+                string.IsNullOrWhiteSpace(trackingCode) ? "Unknown" : trackingCode;
 
             this.description = "Unknown";
             this.weight = 1;
